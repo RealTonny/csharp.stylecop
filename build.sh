@@ -18,8 +18,5 @@ then
   dotnet tool install Cake.Tool --version 2.2.0 --tool-path "$CAKE_TOOL_PATH"
 fi
 "$PAKET" install
-dotnet restore
-export MSBUILDSINGLELOADCONTEXT=1
-export MSBUILDDISABLENODEREUSE=1
 
 "$CAKE" -- "$@"
