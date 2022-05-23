@@ -6,7 +6,7 @@ set -o pipefail
 PAKET_TOOL_PATH=.paket
 CAKE_TOOL_PATH=.cake
 PAKET="$PAKET_TOOL_PATH"/paket
-CAKE = "$CAKE_TOOL_PATH"/cake
+CAKE = "$CAKE_TOOL_PATH"/dotnet-cake
 
 if ! [ -e "$PAKET" ]
 then
@@ -17,7 +17,7 @@ if ! [ -e "$CAKE" ]
 then
   dotnet tool install Cake.Tool --version 2.2.0 --tool-path "$CAKE_TOOL_PATH"
 fi
-
+ls "$CAKE_TOOL_PATH"
 "$PAKET" install
 dotnet restore
 export MSBUILDSINGLELOADCONTEXT=1
