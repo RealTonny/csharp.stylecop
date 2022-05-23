@@ -25,4 +25,6 @@ jobs:
         chmod +x "${GITHUB_WORKSPACE}/build.sh"
         "${GITHUB_WORKSPACE}/build.sh"
     - name: Push nuget package
-      run: .paket/paket push --url https://nuget.pkg.github.com/${{ github.repository_owner }} --api-key ${{ secrets.GITHUB_TOKEN }} artifacts/*.nupkg
+      run: |
+        dotnet nuget add source --username USERNAME --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+        dotnet nuget push "artifacts/*.nupkg" --source "github"
