@@ -8,6 +8,8 @@ summary
     Rules for c# code.
 description
     Rules for c# code.
+repositoryType git
+repositoryUrl https://nuget.pkg.github.com/RealTonny/csharp.styleCop
 files
     stylecop.json   ==>
     stylecop.props  ==> build
@@ -16,5 +18,3 @@ tags
     stylecop csharp code
 dependencies
     StyleCop.Analyzers 1.1.118
-repositoryUrl
-    https://nuget.pkg.github.com/RealTonny/index.json
