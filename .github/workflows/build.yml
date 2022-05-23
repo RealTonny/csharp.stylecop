@@ -18,7 +18,6 @@ jobs:
       with:
         # Optional SDK version(s) to use. If not provided, will install global.json version when available. Examples: 2.2.104, 3.1, 3.1.x
         dotnet-version: 6.0.*
-        source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: Checkout
@@ -27,5 +26,7 @@ jobs:
       run: |
         chmod +x "${GITHUB_WORKSPACE}/build.sh"
         "${GITHUB_WORKSPACE}/build.sh"
-    - name: Push nuget package
-      run: dotnet nuget push ./artifacts/*.nupkg --skip-duplicate --no-symbols true
+    - name: NuGet push
+      run: |
+        dotnet nuget add source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --name github --username ${{ github.repository_owner }} --password ${{ github.token }} --store-password-in-clear-text
+        dotnet nuget push artifacts/*.nupkg --source github
