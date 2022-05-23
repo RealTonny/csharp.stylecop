@@ -25,4 +25,4 @@ jobs:
         chmod +x "${GITHUB_WORKSPACE}/build.sh"
         "${GITHUB_WORKSPACE}/build.sh"
     - name: Push nuget package
-      run: .paket/paket push --url https://nuget.pkg.github.com/RealTonny/index.json artifacts/*.nupkg
+      run: .paket/paket push --url https://nuget.pkg.github.com/RealTonny/index.json --api-key GITHUB_TOKEN artifacts/*.nupkg
