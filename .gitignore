@@ -1,6 +1,7 @@
 .cake
 .vs
 .config
+.paket
 artifacts
 paket-files
 packages/*

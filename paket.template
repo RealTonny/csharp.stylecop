@@ -1,0 +1,18 @@
+type
+    file
+id
+    csharp.styleCop
+authors
+    RealTonny
+summary
+    Rules for c# code.
+description
+    Rules for c# code.
+files
+    stylecop.json   ==>
+    stylecop.props  ==> build
+    stylecop.ruleset  ==>
+tags
+    stylecop csharp code
+dependencies
+    StyleCop.Analyzers 1.1.118

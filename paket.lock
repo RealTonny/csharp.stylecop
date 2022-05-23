@@ -1,0 +1,9 @@
+STRATEGY: MIN
+RESTRICTION: == net471
+
+GROUP Build
+NUGET
+  remote: https://nuget.org//api/v2
+    Cake.Git (2.0)
+    Cake.Paket.Module (4.0)
+    Cake.Tool (2.2)

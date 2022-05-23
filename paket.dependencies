@@ -1,0 +1,10 @@
+﻿strategy: min
+framework: net471
+source https://nuget.org/api/v2
+
+group Build
+    source https://nuget.org//api/v2
+
+    nuget Cake.Tool 2.2.0
+    nuget Cake.Git 2.0.0
+    nuget Cake.Paket.Module 4.0.0
