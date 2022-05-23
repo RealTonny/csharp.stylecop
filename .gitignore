@@ -1,0 +1,7 @@
+.cake
+.vs
+.config
+artifacts
+paket-files
+packages/*
+build/*
