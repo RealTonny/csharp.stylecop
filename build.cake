@@ -9,7 +9,7 @@ var release = ParseReleaseNotes("RELEASE_NOTES.md");
 Task("Pack")
     .Does(() =>
 {
-    StartProcess(".paket/paket.exe", $"pack --version {release.SemVersion.ToString()} artifacts");
+    StartProcess(".paket/paket", $"pack --version {release.SemVersion.ToString()} artifacts");
 });
 
 //////////////////////////////////////////////////////////////////////
