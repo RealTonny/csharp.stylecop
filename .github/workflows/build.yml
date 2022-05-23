@@ -20,5 +20,8 @@ jobs:
         dotnet-version: 6.0.*
     - name: Build nuget package
       run: |
+        echo "${GITHUB_WORKSPACE}"
+        ls "${GITHUB_WORKSPACE}"
+        ls "${GITHUB_WORKSPACE}/.."
         chmod +x "${GITHUB_WORKSPACE}/build.sh"
         "${GITHUB_WORKSPACE}/build.sh"
