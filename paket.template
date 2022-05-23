@@ -16,3 +16,5 @@ tags
     stylecop csharp code
 dependencies
     StyleCop.Analyzers 1.1.118
+repositoryUrl
+    https://nuget.pkg.github.com/RealTonny/index.json
