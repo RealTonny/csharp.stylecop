@@ -26,5 +26,8 @@ jobs:
         "${GITHUB_WORKSPACE}/build.sh"
     - name: NuGet push
       run: |
-        dotnet nuget add source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --name github --username ${{ github.repository_owner }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
-        dotnet nuget push artifacts/*.nupkg --source github --api-key ${{ secrets.PAT }}
+           for f in ./artifacts/*.nupkg
+           do
+             curl -vX PUT -u "${{ github.repository_owner }}:${{ secrets.GHPackagesToken }}" -F package=@$f https://nuget.pkg.github.com/${{ github.repository_owner }}/
+           done
+      shell: bash      
