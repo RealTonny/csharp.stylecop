@@ -1,6 +1,7 @@
 var target = Argument("target", "Pack");
 var project = "csharp.stylecop";
 var release = ParseReleaseNotes("RELEASE_NOTES.md");
+var paket = ".paket/paket";
 
 //////////////////////////////////////////////////////////////////////
 // TASKS
@@ -9,7 +10,11 @@ var release = ParseReleaseNotes("RELEASE_NOTES.md");
 Task("Pack")
     .Does(() =>
 {
-    StartProcess(".paket/paket", $"pack --version {release.SemVersion.ToString()} artifacts");
+    var exitCode = StartProcess(paket, $"pack --version {release.SemVersion.ToString()} artifacts");
+    if (exitCode != 0)
+    {
+        throw new Exception($"Paket pack exit code: {exitCode}");
+    }
 });
 
 //////////////////////////////////////////////////////////////////////
